@@ -1,0 +1,9 @@
+ib_insync
+pandas
+numpy
+openpyxl
+backtrader
+matplotlib
+scikit-learn
+python-dotenv
+requests
