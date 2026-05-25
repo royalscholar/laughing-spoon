@@ -1,0 +1,94 @@
+Folder PATH listing
+Volume serial number is C8AB-D4B4
+C:.
+|   .gitignore
+|   01_connect.py
+|   02_strategy.py
+|   03_order_execution.py
+|   04_risk_management.py
+|   05_live_bot.py
+|   06_backtest.py
+|   07_backtest_multi_assets.py
+|   08_live_multi_asset_bot.py
+|   09_live_multi_asset_bot.py
+|   10_live_multi_asset_bot.py
+|   alpaca_broker.py
+|   alpaca_bt_feed.py
+|   alpaca_config.py
+|   alpaca_connect.py
+|   alpaca_data.py
+|   alpaca_live_feed.py
+|   bt_run.py
+|   clean_build_setup.bat
+|   debug_alpaca.py
+|   debug_ibkr.py
+|   FILE_TREE.txt
+|   ib_ma_30_test.py
+|   ib_ma_bot.py
+|   ib_ma_multi.py
+|   README.md
+|   requirements.txt
+|   
++---app
+|   |   main.py
+|   |   main_live.py
+|   |   main_multi_asset.py
+|   |   main_multi_asset_v2.py
+|   |   __init__.py
+|   |   
+|   +---broker
+|   |       ibkr_client.py
+|   |       __init__.py
+|   |       
+|   +---data
+|   |       tickers_us_clean.txt
+|   |       __init__.py
+|   |       
+|   +---execution
+|   |       order_manager.py
+|   |       __init__.py
+|   |       
+|   +---ml
+|   |       __init__.py
+|   |       
+|   +---monitoring
+|   |       __init__.py
+|   |       
+|   +---risk
+|   |       risk_limits.py
+|   |       __init__.py
+|   |       
+|   +---scanner
+|   |       __init__.py
+|   |       
+|   \---strategies
+|           ib_ma_multi.py
+|           macross_bt.py
+|           moving_average.py
+|           __init__.py
+|           
++---Data
+|       tickers_us_clean.txt
+|       tickers_us_clean.xlsx
+|       
++---docs
+|       build_notes.md
+|       
++---strategies
+|   |   BreakoutStrategy.py
+|   |   BTCMA.py
+|   |   init__.py
+|   |   macross_bt.py
+|   |   RSI14.py
+|   |   RsiStrategy.py
+|   |   __init__.py
+|   |   
+|   \---__pycache__
+|           __init__.cpython-313.pyc
+|           
+\---tests
+        backtest_multi_asset.py
+        backtest_single_asset.py
+        test_ib_ma_30.py
+        __init__.py
+        
