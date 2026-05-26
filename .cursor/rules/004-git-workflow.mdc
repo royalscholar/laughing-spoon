@@ -1,0 +1,30 @@
+---
+description: Git and branch workflow
+globs:
+alwaysApply: true
+---
+
+# Git Workflow
+
+Use the repository main branch as the source of truth.
+
+Never commit secrets.
+Never commit .env.
+Never commit broker credentials.
+Never commit IBKR credentials.
+Never commit API keys.
+
+Use feature branches:
+- feature/cursor-foundation-v1
+- feature/trading-engine-v1
+- feature/scanner-v1
+- feature/risk-gate-v1
+- feature/base44-admin-v1
+
+Before commit:
+- run tests
+- run lint if configured
+- check git diff
+- confirm no secrets
+
+Commit messages should be clear and specific.

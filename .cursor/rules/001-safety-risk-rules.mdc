@@ -1,0 +1,49 @@
+---
+description: Safety, risk, and execution rules
+globs:
+alwaysApply: true
+---
+
+# Safety and Risk Rules
+
+Never write code that guarantees, promises, targets, or forces fixed daily returns.
+
+Forbidden claims:
+- guaranteed returns
+- daily profit guarantee
+- 10% daily
+- 30% daily
+- 50% daily
+- 70% daily
+- risk-free
+- no-loss strategy
+
+The bot must:
+- scan opportunities
+- rank opportunities
+- reject weak opportunities
+- use probability estimates
+- use liquidity filters
+- use volatility filters
+- use risk/reward filters
+- require risk approval before execution
+
+Every trade must pass:
+- bot mode check
+- live trading enabled check
+- paper/live environment check
+- PDT guard
+- daily loss guard
+- margin guard
+- position size guard
+- liquidity guard
+- slippage guard
+- spread guard
+- manual approval check when required
+
+Live trading must be disabled by default.
+
+Never place orders unless:
+- risk_approved == true
+- execution_allowed == true
+- kill_switch_active == false

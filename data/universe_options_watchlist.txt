@@ -1,0 +1,1 @@
+# Add symbols approved for options watchlist coverage, one symbol per line.

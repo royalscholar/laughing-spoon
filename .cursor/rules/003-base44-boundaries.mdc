@@ -1,0 +1,35 @@
+---
+description: Base44 limitations and control-plane rules
+globs: base44-app/**/*
+alwaysApply: false
+---
+
+# Base44 Boundary Rules
+
+Base44 is only the Admin GUI and control plane.
+
+Base44 may build:
+- dashboard
+- scanner results table
+- trade approval queue
+- risk settings forms
+- strategy settings forms
+- Greeks settings forms
+- Fibonacci settings forms
+- logs
+- model performance page
+- backend proxy functions
+
+Base44 must not build:
+- IBKR/TWS direct connection
+- live broker execution
+- Python scanner
+- ML training
+- market data ingestion daemon
+- long-running trading loop
+- broker credential storage
+
+Base44 functions may only proxy requests to the external Python FastAPI backend.
+
+Every Base44 action must call the backend.
+The backend is final authority.

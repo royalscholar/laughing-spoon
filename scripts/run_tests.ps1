@@ -1,0 +1,13 @@
+$ErrorActionPreference = "Stop"
+
+Push-Location "$PSScriptRoot/../trading-engine"
+try {
+    if (Test-Path ".venv/Scripts/Activate.ps1") {
+        . .\.venv\Scripts\Activate.ps1
+    }
+
+    pytest
+}
+finally {
+    Pop-Location
+}

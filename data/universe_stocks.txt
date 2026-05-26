@@ -1,0 +1,1 @@
+# Add stock symbols for scanner coverage, one symbol per line.

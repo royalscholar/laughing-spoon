@@ -1,0 +1,44 @@
+---
+description: Core architecture rules for the trading bot project
+globs:
+alwaysApply: true
+---
+
+# Project Architecture Rules
+
+This project is a Multi-Asset AI Scanner + ML Probability Engine + Risk-Gated Execution Bot + Admin GUI.
+
+The architecture is:
+
+- Cursor/GitHub: code development and source control
+- trading-engine/: Python FastAPI backend
+- base44-app/: Admin GUI and control plane only
+- IBKR/TWS or IB Gateway: broker connection
+- AWS/VPS: production backend hosting
+- PostgreSQL: persistent trade/config/log storage
+- Redis: queue/cache/background jobs
+
+Hard boundary:
+
+Base44 must never execute trades directly.
+Base44 must never store broker credentials.
+Base44 must never connect directly to IBKR/TWS.
+Base44 is only the UI/control plane.
+
+The Python backend is responsible for:
+- scanner
+- ML probability model
+- Greeks computation
+- Fibonacci risk engine
+- risk gate
+- PDT guard
+- margin guard
+- execution engine
+- IBKR/TWS connection
+- trade journal
+- audit logs
+
+Default mode must be:
+- live trading disabled
+- paper trading enabled
+- manual approval required

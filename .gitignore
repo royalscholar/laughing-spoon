@@ -12,6 +12,7 @@ __pycache__/
 # Secrets
 .env
 .env.*
+!.env.example
 alpaca_keys.py
 config.private.py
 secrets.json
@@ -20,6 +21,14 @@ secrets.json
 *.log
 .DS_Store
 Thumbs.db
+
+# Tooling and build output
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+node_modules/
+dist/
+build/
 
 # Backups
 backup_old/

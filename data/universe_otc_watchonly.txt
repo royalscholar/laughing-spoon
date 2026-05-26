@@ -1,0 +1,1 @@
+# Add OTC symbols for watch-only scanning, one symbol per line.

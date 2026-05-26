@@ -1,0 +1,41 @@
+---
+description: Python FastAPI backend standards
+globs: trading-engine/**/*.py
+alwaysApply: false
+---
+
+# Python Backend Rules
+
+Use:
+- Python 3.11 or 3.12
+- FastAPI
+- Pydantic
+- SQLAlchemy
+- PostgreSQL
+- Redis
+- ib_insync for IBKR integration unless replaced later
+- pytest for tests
+
+Code requirements:
+- type hints required
+- no hardcoded secrets
+- use environment variables
+- use Pydantic models for API payloads
+- return structured JSON responses
+- log every trading decision
+- never silently fail
+- never bypass risk checks
+
+API endpoints should live under:
+trading-engine/app/api/
+
+Business logic should live under:
+trading-engine/app/scanner/
+trading-engine/app/features/
+trading-engine/app/models/
+trading-engine/app/risk/
+trading-engine/app/execution/
+trading-engine/app/storage/
+
+Do not place broker execution logic directly inside route handlers.
+Routes call services. Services call risk gate. Risk gate calls execution only when approved.
