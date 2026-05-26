@@ -8,3 +8,4 @@ class HealthResponse(BaseModel):
     paper_trading_enabled: bool
     manual_approval_required: bool
     kill_switch_active: bool
+    ibkr_connected: bool
