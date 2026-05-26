@@ -42,7 +42,7 @@ uvicorn main:app --reload
 
 ## Current implementation stage
 
-This foundation contains project structure, documentation, safety defaults, and a minimal FastAPI health endpoint. It does not implement live broker execution.
+This foundation contains project structure, documentation, safety defaults, and a mock-data FastAPI API skeleton under `/api`. It does not implement live broker execution.
 
 ## Disclaimer
 

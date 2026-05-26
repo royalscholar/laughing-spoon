@@ -1,12 +1,8 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
 
-
-class HealthResponse(BaseModel):
-    status: str
-    bot_mode: str
-    live_trading_enabled: bool
-    manual_approval_required: bool
+from app.api import bot, health, logs, positions, risk, scanner, trades, webhooks
+from app.schemas.health import HealthResponse
+from app.services import health_service
 
 
 app = FastAPI(
@@ -15,12 +11,16 @@ app = FastAPI(
     version="0.1.0",
 )
 
+app.include_router(health.router, prefix="/api")
+app.include_router(scanner.router, prefix="/api")
+app.include_router(trades.router, prefix="/api")
+app.include_router(bot.router, prefix="/api")
+app.include_router(risk.router, prefix="/api")
+app.include_router(positions.router, prefix="/api")
+app.include_router(logs.router, prefix="/api")
+app.include_router(webhooks.router, prefix="/api")
+
 
 @app.get("/health", response_model=HealthResponse)
 def health() -> HealthResponse:
-    return HealthResponse(
-        status="ok",
-        bot_mode="paper",
-        live_trading_enabled=False,
-        manual_approval_required=True,
-    )
+    return health_service.get_health()
