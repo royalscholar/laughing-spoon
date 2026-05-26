@@ -11,7 +11,7 @@ def test_scanner_results_return_mock_data() -> None:
     assert response.status_code == 200
     payload = response.json()
     assert payload["results"]
-    assert payload["results"][0]["symbol"] == "AAPL"
+    assert payload["results"][0]["signal"] == "mock_scanner_v1"
 
 
 def test_trade_candidates_return_mock_data() -> None:
