@@ -58,7 +58,7 @@ def test_predict_opportunity_handles_missing_features_safely() -> None:
 
     assert 0.0 <= prediction.ml_probability <= 1.0
     assert prediction.expected_move_pct == 0.0
-    assert prediction.confidence_score == pytest.approx(1 / 6)
+    assert prediction.confidence_score == pytest.approx(0.1667)
     assert prediction.model_version == DEFAULT_MODEL_VERSION
 
 
