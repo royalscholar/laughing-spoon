@@ -8,27 +8,38 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
 
 # Secrets
 .env
+*.env
 .env.*
 !.env.example
 alpaca_keys.py
 config.private.py
 secrets.json
 
+# Node, Base44, and frontend builds
+node_modules/
+dist/
+build/
+
+# Docker local overrides and volumes
+docker-compose.override.yml
+.docker/
+
 # Logs and local files
+logs/
 *.log
 .DS_Store
 Thumbs.db
 
-# Tooling and build output
-.pytest_cache/
-.ruff_cache/
-.mypy_cache/
-node_modules/
-dist/
-build/
+# Model artifacts
+models_saved/
+*.pkl
+*.joblib
 
 # Backups
 backup_old/
