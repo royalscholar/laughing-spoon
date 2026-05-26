@@ -6,7 +6,10 @@ from fastapi.testclient import TestClient
 from app.core.settings import Settings
 from app.execution.bracket_orders import build_bracket_order_intent
 from app.execution.fill_monitor import get_fill_monitor_status
-from app.execution.ibkr_client import get_ibkr_config, test_ibkr_connection
+from app.execution.ibkr_client import (
+    get_ibkr_config,
+    test_ibkr_connection as check_ibkr_connection_status,
+)
 from app.execution.order_builder import build_paper_order_request
 from main import app
 
@@ -31,7 +34,7 @@ def test_get_ibkr_config_returns_requested_env_defaults() -> None:
 
 
 def test_ibkr_connection_status_does_not_raise_when_unavailable() -> None:
-    status = test_ibkr_connection(timeout_seconds=0.001)
+    status = check_ibkr_connection_status(timeout_seconds=0.001)
 
     assert status.attempted is True
     assert status.paper_only is True
@@ -52,7 +55,7 @@ def test_ibkr_connection_status_reports_connected_when_socket_opens(
 
     monkeypatch.setattr(socket, "create_connection", lambda *args, **kwargs: FakeSocket())
 
-    status = test_ibkr_connection(timeout_seconds=0.001)
+    status = check_ibkr_connection_status(timeout_seconds=0.001)
 
     assert status.connected is True
     assert status.paper_only is True
