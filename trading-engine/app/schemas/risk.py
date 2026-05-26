@@ -16,8 +16,14 @@ class RiskDecision(BaseModel):
 
 class RiskSettingsRequest(BaseModel):
     max_daily_loss: float = Field(default=500.0, gt=0.0)
+    max_trade_risk: float = Field(default=250.0, gt=0.0)
     max_position_size: float = Field(default=1000.0, gt=0.0)
     max_symbol_exposure: float = Field(default=2500.0, gt=0.0)
+    max_open_positions: int = Field(default=5, ge=1)
+    max_day_trades_last_5_business_days: int = Field(default=3, ge=0)
+    max_margin_usage: float = Field(default=0.5, ge=0.0)
+    max_slippage_percent: float = Field(default=0.5, ge=0.0)
+    minimum_liquidity_score: float = Field(default=0.6, ge=0.0, le=1.0)
     min_probability: float = Field(default=0.65, ge=0.0, le=1.0)
     max_spread_percent: float = Field(default=1.0, gt=0.0)
     require_manual_approval: bool = True

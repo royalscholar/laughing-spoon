@@ -110,7 +110,10 @@ def test_risk_settings_can_update_placeholder_threshold() -> None:
     )
     payload = approval_response.json()
     assert payload["status"] == "rejected_by_risk_gate"
-    assert "probability_below_threshold" in payload["risk_decision"]["rejection_reasons"]
+    assert (
+        "minimum_trade_quality_score_not_met"
+        in payload["risk_decision"]["rejection_reasons"]
+    )
 
 
 def test_tradingview_webhook_logs_without_execution() -> None:
