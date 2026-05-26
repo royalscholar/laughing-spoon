@@ -1,0 +1,4 @@
+# Add stock symbols for scanner coverage, one symbol per line.
+AAPL
+MSFT
+NVDA
